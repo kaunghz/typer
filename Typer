@@ -1,0 +1,31 @@
+#!/bin/bash
+
+<<COMMENT
+
+Currently Windows is not supported!
+
+COMMENT
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+cd $SCRIPT_DIR
+
+clear
+
+YELLOW='\033[1m\033[7m\033[33m'
+WHITE='\033[1m\033[37m'
+RED='\033[1m\033[31m'
+NC='\033[0m'
+
+echo -e "${YELLOW}                                WELCOME TO TYPER                                ${NC}"
+echo -e "${WHITE}Enter 'cpp' for C++ or 'py' for Python: ${NC}"
+read -p "" choice
+
+if [ "$choice" == "cpp" ]; then
+    make cpp
+elif [ "$choice" == "py" ]; then
+    make py
+else
+    echo -e "${RED}ERROR: Invalid choice.\nExiting...{NC}"
+    sleep 1.3
+fi
